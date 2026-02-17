@@ -1,0 +1,23 @@
+// Use of friend function
+#include <iostream>
+using namespace std;
+
+class Base {
+    int x;
+public:
+    Base() {}
+    Base(int x):x{x} {}
+    friend void func(Base &);
+};
+
+void func(Base &obj) {
+    cout<< obj.x << endl;
+    obj.x = 20;
+    cout<< obj.x << endl;
+}
+
+int main() {
+    Base obj(10);
+    func(obj);
+    return 0;
+}
